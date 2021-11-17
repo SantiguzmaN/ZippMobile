@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+       <ion-title>Historial ZIPP</ion-title>
+       <ion-buttons end>
+            <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <!--(click)="buttonClick(zonazipp)"-->
+        <button ion-item *ngFor="let reservazipp of reservaszipp">
+            <ion-thumbnail item-start>
+                <img src="{{reservazipp.zonazipp.image_zona_zipp}}">
+            </ion-thumbnail>
+            <h2>{{reservazipp.zonazipp.address}}</h2>
+            <h3><strong>Fecha: </strong>{{reservazipp.fecha_inicio}}</h3>
+            <h3><strong>Tiempo (hh:mm:ss): </strong>{{reservazipp.tiempo_total}}</h3>
+            <h3><strong>Valor total: </strong>${{reservazipp.valor_total}}</h3>
+            <ion-badge *ngIf="reservazipp.estado_reserva == true" style="background-color: #c9302c; color: #fff; border-color: #ac2925;">Finalizado</ion-badge>
+            <ion-badge *ngIf="reservazipp.estado_reserva == false" style="background-color: #a2bd03; color:#fff ; border-color: #ac2925;">En Uso</ion-badge>
+        </button>
+    </ion-list>
+</ion-content>

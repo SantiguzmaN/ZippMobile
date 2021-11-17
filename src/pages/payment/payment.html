@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+      <ion-title>Metodo de Pago ZIPP</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+       
+<form #formPayment="ngForm">
+
+
+  <ion-list no-lines padding-top class="form-content" style="text-align: center">
+    <button ion-button  *ngIf="user.saldo >1999 " color="zipp">tu saldo actual es ${{user.saldo}}</button> 
+    <button ion-button *ngIf="user.saldo <2000 " style="background:#bb2124">tu saldo actual es ${{user.saldo}}</button> 
+    <br>
+    <br>
+
+    <ion-label color="zipp_bg">Digita el CODIGO DE TU</ion-label>
+    <ion-label color="zipp_bg">TARJETA ZIPP</ion-label>
+    
+    <ion-item class="form-group">
+      <ion-input type="text" name="code" #message="ngModel" [(ngModel)]="code" maxlength="19" required></ion-input>
+    </ion-item>  
+
+    <button ion-button block round color="zipp" (click)="getValueCode()"  [disabled]="!formPayment.form.valid">Enviar</button>
+    
+
+    <ion-label color="zipp_bg">Elige otros metodos de pago: </ion-label>
+    <button (click)="statusChange()">
+      <img src="assets/icon/epayco.png"/>
+    </button>
+    <button ion-button block round color="zipp" (click)="reDir()" *ngIf="status2"  >$6.000</button>
+    <button ion-button block round color="zipp" (click)="reDir2()" *ngIf="status2" >$10.000</button>
+    <button ion-button block round color="zipp" (click)="reDir3()" *ngIf="status2"  >$20.000</button>
+
+    <!--<img src="assets/icon/nequi.png" width="96" height="96"/>-->
+
+
+
+
+    
+
+
+    
+
+  </ion-list>
+  
+
+</form>
+
+</ion-content>

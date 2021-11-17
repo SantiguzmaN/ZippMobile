@@ -1,0 +1,24 @@
+ion-app._gmaps_cdv_ .nav-decor{
+    background-color: transparent !important;
+}
+
+page-dashboard {
+    .toolbar-background{ background:#a2bd03; border-style:none;}
+
+    #map {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    #map img {
+        max-width: none !important;
+    }
+
+    .scroll{
+        height: calc(100% - 250px);
+      }
+}

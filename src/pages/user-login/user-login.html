@@ -1,0 +1,97 @@
+<ion-content padding align="center">
+    <img src="assets/images/logo2.png" 
+      style=" zoom: 0.16;
+              padding-top:55px"/>
+  <ion-label 
+      align="center" 
+      style="color:white; 
+             font-size: 50px;
+             font-family:'EliteDanger'!important;" no-border>
+             Bienvenidos
+
+  </ion-label>
+  <ion-label 
+      align="center" 
+      style="color:white; 
+            font-size: 10px;
+            font-family:'EliteDanger'!important;" no-border>
+            No tienes Cuenta? Creala ahora,
+
+  </ion-label>
+  <ion-label 
+      align="center" 
+      style="color:white; 
+             font-size: 10px;
+             font-family:'EliteDanger'!important;" no-border>
+             tomara pocos minutos.
+
+  </ion-label>
+  
+  
+   <div class="hrLine"></div>
+
+  <form #formLoginZipp="ngForm">
+
+    <ion-list no-lines padding-top class="form-content">
+      <ion-item style="background:transparent"  >
+        <ion-icon name="contact" item-start style="color:white"></ion-icon>
+        <ion-input style="color:white" 
+                   type="text"name="cedula" 
+                   #cedula="ngModel" 
+                   [(ngModel)]="user.cedula" 
+                   maxlength="10" 
+                   onkeypress="return justNumbers(event);"  
+                   placeholder= "documento" 
+                   required>
+      </ion-input>  
+      </ion-item>
+
+      <ion-item style="background:transparent">
+        <ion-icon name="key" item-start style="color:white"></ion-icon>
+        <ion-input style="color:white" 
+                   type="password" 
+                   name="password" 
+                   #password="ngModel" 
+                   [(ngModel)]="user.password" 
+                   placeholder="contraseña" 
+                   required>
+        </ion-input>
+       </ion-item>
+
+      <button ion-button block round color="zipp" (click)="onSubmit()">Entrar</button>
+    </ion-list>
+  </form>
+
+  <div padding-top>
+    <button ion-button block color="light" clear (click)="rememberPass();">OLVIDE MI CONTRASEÑA</button>
+    <button ion-button block color="light" clear (click)="userRegisterPage();">¿Eres nuevo? REGISTRATE</button>
+
+  </div>
+  
+   <!--
+   <ion-grid>
+    <ion-row>
+      <ion-col>
+        
+        <button ion-button block style="background-color:transparent" > 
+            <img src="assets/icon/facebook.png" width="27" height="27">
+            Continuar con facebook
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  <ion-content padding>
+    Prueba registro con facebook.
+    <button ion-button block (click)="loginFacebook()">Login con facebook</button>
+    <ion-item *ngIf="showUser">
+      <ion-avatar item-left>
+        <img [src]="user.picture.data.url" alt="">
+      </ion-avatar>
+      <h2>{{user.name}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+  </ion-content>
+   -->
+   
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" [showCancelButton]="true" placeholder="Busca tu zona ZIPP"></ion-searchbar>
+        <button ion-button menuToggle left end>
+            <button ion-button icon-right><ion-icon name="md-more"></ion-icon></button>
+        </button>          
+    </ion-navbar>
+    <ion-list [hidden]="autocompleteItems.length == 0">
+        <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+          {{ item.description }}
+        </ion-item>
+    </ion-list>
+</ion-header>
+<!--Burbuja de la zona ZIPP, solo se muestra cuando hay una zona zipp tomada-->
+<ion-content>
+    <ion-buttons align="right" round style="background:transparent; background-color: transparent;position: absolute;top: 40px;right:20px; display:block;"> 
+        <button *ngFor="let reservazipp of reservaszipp" (click)="buttonClick(reservazipp)"  style="background:transparent">
+           <ng-template [ngIf] ="reservazipp.estado_reserva==false">
+           <img src="{{reservazipp.zonazipp.image_zona_zipp}}"
+                style="width: 70px; 
+                height : 70px; 
+                max-width: 70px;
+                max-height: 70px;
+                border-radius: 50px"/>
+            </ng-template> 
+        </button> 
+       
+    </ion-buttons>
+    <div #map id="map"></div>
+    <ion-scroll scrollY="true" class="scroll">
+        <div padding-horizontal id="panel"></div>
+      </ion-scroll>
+    <ion-buttons align="right" round style="background:transparent; background-color: transparent;position: absolute;bottom: 40px;right:10px; display:block;">
+        <button (click)="Refresh()" style="color:rgba(186, 206, 0, 0.5); background-color: transparent" >
+            <ion-icon name="md-refresh"
+                style="zoom:2.5">
+            </ion-icon>
+        </button>
+    </ion-buttons>  
+
+    
+</ion-content>

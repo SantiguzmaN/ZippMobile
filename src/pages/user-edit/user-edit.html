@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title>Mi perfil ZIPP</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+        
+    
+    <ion-avatar item-left>
+        <img src="{{ url + 'get-image-file/' + user.image}}" />
+    </ion-avatar>
+    
+    <div class="hrLine"></div>  
+    
+  <form #formUserEditZipp="ngForm">
+
+    <ion-list no-lines padding-top class="form-content">
+
+      <ion-label color="zipp_bg">Nombre Completo:</ion-label>
+      <ion-item class="form-group">
+       <ion-input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre completo" required></ion-input>
+      </ion-item>
+
+      <ion-label color="zipp_bg">Saldo:</ion-label>
+      <ion-item class="form-group">
+        <ion-input type="text" name="saldo" #saldo="ngModel" [(ngModel)]="user.saldo" maxlength="20" onkeypress="return justNumbers(event);"  placeholder="Saldo" required readonly></ion-input>
+      </ion-item>  
+
+      <ion-label color="zipp_bg">Documento de identidad:</ion-label>
+      <ion-item class="form-group">
+        <ion-input type="text" name="cedula" #cedula="ngModel" [(ngModel)]="user.cedula" maxlength="10" onkeypress="return justNumbers(event);"  placeholder="Documento de identidad" required readonly></ion-input>
+      </ion-item>
+
+      <ion-label color="zipp_bg">Correo Electrónico:</ion-label>
+      <ion-item class="form-group">
+        <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Correo Electrónico" required></ion-input>
+      </ion-item>
+     
+      <ion-label color="zipp_bg">Número de celular:</ion-label>
+      <ion-item class="form-group">
+        <ion-input type="text" name="celular" #celular="ngModel" [(ngModel)]="user.celular" maxlength="10" onkeypress="return justNumbers(event);" placeholder="Número Celular" required></ion-input>
+      </ion-item>
+
+      <ion-label color="zipp_bg">Ciudad:</ion-label>
+      <ion-item class="form-group">
+        <ion-select name="ciudad" #ciudad="ngModel" [(ngModel)]="user.ciudad" required readonly>
+          <ion-option value="Manizales">Manizales</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-button block round color="zipp" (click)="onSubmit()" [disabled]="!formUserEditZipp.form.valid">Actualizar</button>
+    
+    </ion-list>
+
+  </form>
+
+</ion-content>

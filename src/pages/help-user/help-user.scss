@@ -1,0 +1,36 @@
+page-help-user {
+    .toolbar-background{ background:#a2bd03; border-style:none;}
+    //.toolbar::after,.header-md::after{ background-image:none;}
+   
+    ion-content{
+        background-color: #f7fcf6 !important;
+        
+    }
+
+    //.scroll-content { display: table; width: 100%; height: 100%; }
+    //.centerAlign { display: table-cell; vertical-align: middle; }
+
+    .ion-title {
+      text-align: right;
+      color:#fff !important; 
+      font-weight: bold;
+      font-size: 1.9em;
+    }
+
+    .item{
+      border:#afcc00 1px solid !important;
+      margin-bottom:10px; 
+      background-color: #fff; 
+      opacity: 0.8;
+      border-radius: 5px;
+    }
+
+    .item-input-has-focus {
+      border:#afcc00 3px solid !important;
+    }
+
+    .input-has-focus {
+      border-bottom: #fff 0px solid !important;
+    }
+    
+}

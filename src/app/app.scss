@@ -1,0 +1,78 @@
+
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+ion-menu{
+    .header::after{background-image:none;} /*Hide toolbar shadow*/
+     ion-toolbar{
+         .toolbar-background{background:$menu_bg_color; border:0px; }
+         .toolbar-content{
+                ion-item{
+                background: transparent;
+                h2{font-size:$size_small;font-weight: normal; color:$menu_bg_color_zipp;}
+                p{font-size:$size_extrasmall;font-weight: normal; color:$menu_avatar_text_color;}
+                ion-avatar{
+                    background:$menu_avatar_bg_color;border-radius:50%;text-align: center;
+                    h2{
+                        margin: 0;
+                        font-size:$size_extralarge;
+                        line-height: 40px; color:$menu_avatar_font_color;
+                    }
+                }
+            }
+        }
+      }
+
+     ion-content{
+             background-color:$menu_bg_color !important;
+             ion-list{
+                    .item{background:transparent; color:$menu_font_color;font-size:$menu_font_size;}
+                    .item-inner{
+                        border-bottom: 1px solid $menu_separator_line_color !important;
+                        img{width: 25px;height: 25px;vertical-align: middle;margin-right:0;margin-bottom: 5px;}
+                        ion-icon{width:30px; height:30px; vertical-align: middle;  font-size:1.9em;  }
+                    }
+
+            }
+     }
+}
+
+//-----------------------------------------------------
+ .hrLine { 
+    text-align:center;
+     border-bottom: 1px dotted #fff; line-height: 0.1em; margin:15px auto;}
+ .hrLine span { background:#fff; padding:0 5px;  font-size:18px; color:#000;}
+
+
+
+//-------------- CSS INFO WINDOW MAPS ---------------------------------------
+
+.iw-button{
+    background-color: #95ae00; /* Green zipp */
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 2px;
+    display: block;
+    margin: 0 auto;
+}
+
+//-----------------------------------------------------

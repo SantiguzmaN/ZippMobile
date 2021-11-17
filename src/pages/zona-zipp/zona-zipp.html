@@ -1,0 +1,175 @@
+<ion-header>
+    <ion-navbar hideBackButton="true"> 
+        <ion-title>Zona ZIPP</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!-- interfaz reada a base de grids para generar minitablas para mostrar la informacion de la zona zip-->
+<ion-content align="center">
+    
+    
+        <img src="{{zonazipp.image_zona_zipp}}" 
+             style="width:300px;
+                    height:179px;
+                    max-width:300px; 
+                    max-height: 179px"
+
+        />
+    
+        <ion-navbar> 
+                <ion-label style="color: white;font-size: 1em;padding:0%">{{zonazipp.address}}, {{zonazipp.city}} </ion-label>
+                <ion-label style="color: white;font-size: 1em;padding:0%"> {{zonazipp.description}} </ion-label>
+         </ion-navbar>
+
+        <!-- en esta zona se visualiza estrellas segun la calificacion -->
+        
+        <ion-grid no-padding>
+            <ion-row style="text-align: center">
+                <ion-col>
+                    <ion-label style="color:#a2bd03;font-size: 1em;text-align: right"> Calificacion </ion-label>
+                </ion-col>
+                <ion-col style="text-align: center ">
+                    <ion-buttons align="center" style="text-align: left">
+
+                        <button style="background:transparent; padding: 0%"   >
+                            <img src="assets/icon/estrella.png" style="width: 27px;height : 27px"/>
+                        </button>
+         
+                        <button style="background:transparent; padding: 0%"  >
+                            <img src="assets/icon/estrella.png" style="width: 27px;height : 27px"/>
+                        </button>
+       
+                        <button style="background:transparent; padding: 0%"  >
+                            <img src="assets/icon/estrella.png" style="width: 27px;height : 27px"/>
+                        </button>
+
+                        <button style="background:transparent; padding: 0%"   >
+                            <img src="assets/icon/estrella.png" style="width: 25px;height : 25px"/>
+                        </button>
+
+                        <button style="background:transparent; padding: 0%"  >
+                            <img src="assets/icon/estrella.png" style="width: 27px;height : 27px"/>
+                        </button>
+
+            </ion-buttons>
+        </ion-col>
+    </ion-row>
+        <ion-row>
+            <ion-col>
+                    <ion-label style="color:#a2bd03;font-size: 1em; text-align: right;">Servicios Adicionales</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-buttons align="center" style="text-align:left"> 
+                        <button *ngIf="security_guard == true" style="background:transparent; padding: 0%">
+                            <img src="assets/icon/seguridad.png" style="width: 23px;height : 23px"/>
+                        </button>
+
+                        <button *ngIf="roofed == true" style="background:transparent; padding: 0%">
+                            <img src="assets/icon/techo.png" style="width: 23px;height : 23px"/>
+                        </button>
+        
+                        <button *ngIf="cctv == true" style="background:transparent; padding: 0%">
+                            <img src="assets/icon/vigilancia.png" style="width: 23px;height : 23px"/>
+                        </button>
+
+                        <button *ngIf="total_hours_day == true" style="background:transparent; padding: 0%">
+                            <img src="assets/icon/horario.png" style="width: 23px;height : 23px"/>
+                        </button>
+
+                        <button *ngIf="leave_key == true" style="background:transparent; padding: 0%">
+                            <img src="assets/icon/llaves.png" style="width: 23px;height : 23px"/>
+                        </button> 
+
+                        <button *ngIf="electric_station == true" style="background:transparent; padding: 0%"> 
+                            <img src="assets/icon/electrog.png" style="width: 23px;height : 23px"/>
+                        </button>
+                    </ion-buttons>
+                </ion-col>
+            
+        </ion-row>
+</ion-grid>
+
+
+    
+        
+
+        <ion-grid style="border:solid #a2bd03 ; size:xx-small">
+            <ion-row style="text-align: center">
+                <ion-col style="background:#a2bd03 ;text-align: center ; padding-bottom: 0px">
+                    <ion-buttons align="center" round style="padding-bottom:2px"> 
+                        <button *ngIf="motorcycle_type == true"  style="background:transparent">
+                             <img  src="assets/icon/moto.png" style="width: 45px; 
+                                    height : 24px; 
+                                    max-width: 45px;
+                                    max-height: 24px;
+                                    border-radius: 50px; 
+                                    background: white;
+                                    text-align: right;" />   
+                        </button>
+
+                        <button *ngIf="bike_type == true" round  style="background:transparent">
+                            <img  src="assets/icon/bicicleta.png" style="width: 45px; 
+                                    height : 24px; 
+                                    max-width: 45px;
+                                    max-height: 24px;
+                                    border-radius: 50px; 
+                                    background: white;
+                                    text-align: right;" />  
+                        </button>
+        
+                        <button *ngIf="car_type == true" round  style="background:transparent">
+                            <img  src="assets/icon/carro.png" 
+                                  style="width: 45px; 
+                                    height : 24px; 
+                                    max-width: 45px;
+                                    max-height: 24px;
+                                    border-radius: 50px; 
+                                    background: white;
+                                    text-align: right;" />   
+                        </button>
+
+                    </ion-buttons>
+                                     
+                    
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col style="text-align: right">
+                    <ion-icon name="cash" style="color:black; width: 30px;height : 24px; zoom:2.5"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <ion-label style="color: black;font-size: 1em;text-align: left;">${{zonazipp.price}} </ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row style="text-align: center">
+                <ion-col style="text-align: center ">
+                    <button ion-button class="iw-button" *ngIf="zonazipp.estado_zonazipp == false" (click)="getTimer()" style="width: 160px;">
+                        <span >
+                            <ion-icon name="ios-timer-outline" style="color:white; zoom:1.5">
+                            </ion-icon>
+                            Tiempo de Uso
+                        </span>
+                    </button>
+                    <button ion-button class="iw-button" *ngIf="zonazipp.estado_zonazipp == false" (click)="goRoute()" style="width: 160px;">
+                        <span >
+                            <ion-icon name="ios-navigate-outline" style="color:white; zoom:1.5">
+                            </ion-icon>
+                            Como LLegar
+                        </span>
+                    </button>
+                    <button ion-button class="iw-button" *ngIf="zonazipp.estado_zonazipp == true" (click)="tomarZipp()" style="width: 160px;">
+                        <span >Tomar ZIPP</span>
+                    </button>
+                    <button ion-button style="background: red; width: 160px" *ngIf="zonazipp.estado_zonazipp == false" (click)="finalizarReserva()">
+                            <span >Finalizar ZIPP</span>
+                    </button>
+                    
+                
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+              
+</ion-content>
+

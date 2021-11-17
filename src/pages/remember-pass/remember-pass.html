@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title>Olvide mi Contraseña</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #formPass="ngForm">
+    <ion-list align="center">
+        <ion-label *ngIf="test==false" color="zipp_bg">a continuacion debe ingresar los siguientes </ion-label> 
+        <ion-label *ngIf="test==false" color="zipp_bg">datos, con ellos verificaremos su identidad</ion-label>
+        <ion-item *ngIf="test==false" class="form-group">
+          <ion-input placeholder="Cedula" type="text" name="cedula" #cedula="ngModel" [(ngModel)]="user.cedula" onkeypress="return justNumbers(event);"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="test==false" class="form-group">
+          <ion-input placeholder="Celular" type="text" name="celular" #celular="ngModel" [(ngModel)]="user.celular" onkeypress="return justNumbers(event);"></ion-input>
+        </ion-item>
+        <ion-item  *ngIf="test==false" class="form-group">
+          <ion-input placeholder="Email" type="email" name="email" #email="ngModel" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-buttons > 
+            <button ion-button block round color="zipp" *ngIf="test==false" (click)="verificar()">Verificar</button>
+        </ion-buttons>
+        <ion-label *ngIf="test==true" color="zipp_bg">Listo:{{user.name}}</ion-label> 
+        <ion-label *ngIf="test==true" color="zipp_bg">ya validamos tu informacion, ahora </ion-label>
+        <ion-label *ngIf="test==true" color="zipp_bg">debes ingresar una nueva contraseña </ion-label>
+        <ion-item class="form-group" *ngIf="test==true ">
+            <ion-input placeholder="Nueva Contraseña" type="password" name="ncont" #ncont="ngModel" [(ngModel)]="nc"></ion-input>
+          </ion-item>
+          <ion-item class="form-group" *ngIf="test==true">
+            <ion-input placeholder="Verifique su nueva Contraseña" type="password" name="ncontr" #ncontr="ngModel" [(ngModel)]="ncr"></ion-input>
+          </ion-item>
+          <ion-buttons> 
+              <button ion-button block round color="zipp" *ngIf="test==true" (click)="modificar()">Modificar</button>
+          </ion-buttons>
+    </ion-list>
+
+  </form>
+
+</ion-content>

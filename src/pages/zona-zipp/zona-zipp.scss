@@ -1,0 +1,51 @@
+page-zona-zipp{
+    .toolbar-background{ background:#a2bd03; border-style:none;}
+    //.toolbar::after,.header-md::after{ background-image:none;}
+   
+    ion-content{
+        background-color: #f7fcf6 !important;
+        
+    }
+
+    //.scroll-content { display: table; width: 100%; height: 100%; }
+    //.centerAlign { display: table-cell; vertical-align: middle; }
+
+    .ion-title {
+      text-align: right;
+      color:#fff !important; 
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .toolbar{
+      background-color:white !important;
+
+    }
+
+
+
+    .item-input-has-focus {
+      border:#afcc00 3px solid !important;
+    }
+
+    .input-has-focus {
+      border-bottom: #fff 0px solid !important;
+    }
+
+    .card-title-md {
+      display: block;
+      font-size: 2.0rem;
+      line-height: 1.2;
+      color: #222;
+      margin: 2px 0;
+      padding: 8px 0;
+    }
+
+    .ion-h2{
+      color: #a2bd03;  
+      text-align: center;
+      font-weight: bold;
+    }
+   
+    
+}

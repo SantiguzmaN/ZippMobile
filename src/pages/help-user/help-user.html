@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+               
+        <ion-title>Ayuda ZIPP</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="goDashboard()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form #formHelpUser="ngForm">
+
+        <ion-item>
+                <ion-label color="zipp_bg">Asunto</ion-label>
+                <ion-select name="datas" #datas="ngModel" [(ngModel)]="data"  >
+                    <ion-option value="Saldo">Saldo</ion-option>
+                    <ion-option value="Disponibilidad">Disponibilidad</ion-option>
+                    <ion-option value="Ultimo Zipp usado">Ultimo Zipp usado</ion-option>
+                    <ion-option value="Medios de Pago">Medios de Pago</ion-option>
+                    <ion-option value="Peticion">Peticion</ion-option>
+                    <ion-option value="Queja">Queja</ion-option>
+                    <ion-option value="Requerimiento">Requerimiento</ion-option>
+                </ion-select>
+            </ion-item>
+                
+        <ion-list no-lines padding-top class="form-content">
+            <ion-label color="zipp_bg">Mensaje:</ion-label>
+            <ion-item class="form-group">
+                 <ion-textarea type="text" name="message" #message="ngModel" [(ngModel)]="mess" maxlength="255" placeholder="Mensaje" required></ion-textarea>
+            </ion-item>
+
+            <button ion-button block round color="zipp" (click)="onSubmit();" [disabled]="!formHelpUser.form.valid">Enviar</button>
+            
+        </ion-list>
+                
+    </form>
+
+</ion-content>

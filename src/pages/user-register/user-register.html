@@ -1,0 +1,68 @@
+<ion-header >
+  <ion-navbar  hideBackButton="true">
+    <!--<ion-title><h2 class="ion-title">Registro</h2></ion-title>-->
+    <ion-buttons end>
+            <button ion-button icon-right (click)="userLoginPage()"> <ion-icon name="arrow-round-back"></ion-icon></button>
+        </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <!--<ion-grid>
+    <ion-row>
+      <ion-col><button ion-button block class="facebookButton"> Facebook</button></ion-col>
+      <ion-col><button ion-button block class="googleButton"> Google+</button></ion-col>
+    </ion-row>
+  </ion-grid>-->
+  
+  <div class="hrLine"></div>
+
+    
+  <form #formUserZipp="ngForm">
+
+    <ion-list no-lines padding-top class="form-content">
+
+      <ion-item class="form-group">
+       <ion-input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" placeholder="Nombre completo" required maxlength="50" minLength="5"></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" placeholder="Correo Electrónico" minLength="5" maxlength="40" required></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Contraseña" required  ></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-input type="text" name="cedula" #cedula="ngModel" [(ngModel)]="user.cedula" minLength="5" maxlength="10"  onkeypress="return justNumbers(event);"  placeholder="Documento de identidad" required></ion-input>
+      </ion-item>
+  
+      <ion-item class="form-group">
+        <ion-input type="text" name="celular" #celular="ngModel" [(ngModel)]="user.celular" maxlength="10" onkeypress="return justNumbers(event);" placeholder="Número Celular" required></ion-input>
+      </ion-item>
+  
+  
+      <!--<ion-item class="form-group">
+        <ion-input type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="user.ciudad" placeholder="Ciudad" required></ion-input>
+      </ion-item>-->
+
+      <ion-item class="form-group">
+        <ion-label>Ciudad</ion-label>
+        <ion-select name="ciudad" #ciudad="ngModel" [(ngModel)]="user.ciudad" required>
+          <ion-option value="Manizales">Manizales</ion-option>
+        </ion-select>
+      </ion-item>
+    
+    </ion-list>
+
+  </form>
+
+  <div padding>
+    <button ion-button block round color="zipp" (click)="onSubmit(); formUserZipp.reset();" [disabled]="!formUserZipp.form.valid">Crear cuenta</button>
+    <p class="terms-count">Al presionar "Crear cuenta" acepto las <a class="terms-count-a" (click)="userTermsPage()"><strong>Condiciones de uso y la Política de pricacidad</strong></a>.</p>
+  </div>
+  
+</ion-content>
+

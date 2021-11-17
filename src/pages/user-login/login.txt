@@ -1,0 +1,67 @@
+onSubmit(){
+    // Loguear al usuario y conseguir el objeto
+    this._userService.signin(this.user).subscribe(
+      response => {
+        this.identity = response.user;
+
+        if (!this.identity || !this.identity._id) {
+          alert('El usuario no se ha logueado correctamente');
+        }else{
+
+          this.identity.password = '';
+
+          localStorage.setItem('identity', JSON.stringify(this.identity));
+
+          this.navCtrl.push(Dashboard); 
+
+          
+          //Conseguir el token
+          
+          this._userService.signin(this.user, 'true').subscribe(
+            response => {
+              this.token = response.token;
+
+              if (this.token.lenght <= 0) {
+                alert('El token no se ha generado');
+              }else{
+                localStorage.setItem('token', this.token);   
+                this.status = 'success';
+
+                this.navCtrl.push(Dashboard);           
+              }
+            },
+            error => {
+              console.log(<any>error);
+            }
+          );
+          
+
+
+        }
+      },
+      error => {
+        var errorMessage = <any>error;
+        if (errorMessage != null) {
+          var body = JSON.parse(error._body);
+          this.status = 'error';
+        }
+      }
+    );
+  }
+
+
+
+
+
+  signin(user_to_login, gettoken = null){
+		if(gettoken != null){
+			user_to_login.gettoken = gettoken;
+		}
+
+		let params = JSON.stringify(user_to_login);
+		let headers = new Headers({'Content-Type':'application/json'});
+
+
+		return this._http.post(this.url+'login_conductor', params, {headers: headers})
+						 .map(res => res.json());
+	}
